@@ -1,31 +1,27 @@
-# my_project Substreams modules
+# Solana Transfer Extraction – Substreams Assignment
 
-This package was initialized via `substreams init`, using the `sol-hello-world` template.
+## Overview
+This project extracts SOL transfer transactions from Solana blockchain blocks:
+385870151 to 385870156.
 
-## Usage
+## Tech Used
+- Rust
+- Substreams
+- Solana
 
-```bash
+## How to Run
 substreams build
-substreams auth
-substreams gui       			  # Get streaming!
-```
 
-Optionally, you can publish your Substreams to the [Substreams Registry](https://substreams.dev).
+substreams run \
+-e mainnet.sol.streamingfast.io:443 \
+my-project-v0.1.0.spkg \
+map_my_data \
+-s 385870151 \
+-t 385870156 \
+-o jsonl
 
-```bash
-substreams registry login         # Login to substreams.dev
-substreams registry publish       # Publish your Substreams to substreams.dev
-```
+## Output Format
+{"from": "...", "to": "...", "amount": 12345}
 
-## Modules
-
-### `map_filtered_transactions`
-
-This module retrieves Solana transactions filtered by one or several Program IDs.
-You will only receive transactions containing the specified Program IDs).
-
-**NOTE:** Transactions containing voting instructions will NOT be present.
-
-### `map_my_data`
-
-This module allows you to create transformations on the filtered transactions.
+## Screenshots
+See /asset folder
